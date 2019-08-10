@@ -1,0 +1,44 @@
+{
+  "name": "book-reader",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack --config webpack.prod.js",
+    "dev": "webpack-dev-server --config webpack.dev.js --watch",
+    "lint": "eslint  --ext .js --ext .jsx --ext .vue src/",
+    "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue src/"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "babel-eslint": "^10.0.2",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.0.0",
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^5.2.3",
+    "html-webpack-plugin": "^3.2.0",
+    "jquery": "^3.4.1",
+    "npm": "^6.10.3",
+    "sass-loader": "^7.1.0",
+    "vue-loader": "^15.7.0",
+    "vue-router": "^3.0.7",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6",
+    "webpack-dev-server": "^3.7.2",
+    "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4"
+  }
+}
