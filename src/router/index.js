@@ -1,6 +1,6 @@
 import Router from 'vue-router';
 import Book from '@/components/Book.vue';
-// const Home = resolve => require(/* webpackChunkName: "红么" */'@/components/home.vue', resolve);
+// const Home = resolve => require(/* webpackChunkName: "home" */'@/components/home.vue', resolve);
 const Home = resolve => {
   require.ensure([], () => {
     resolve(require('@/components/home.vue'))
@@ -18,6 +18,10 @@ export default new Router({
     path: '/home',
     name: 'home',
     component: Home
+  },
+  {
+    path: '*',
+    redirect: '/home'
   }
   ]
 })

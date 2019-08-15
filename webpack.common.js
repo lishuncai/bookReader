@@ -18,9 +18,10 @@ module.exports = {
     main: path.resolve(__dirname, 'src/main.js')
   },
   output: {
-    filename: '[name].js',
-    chunkFilename: '[name].chunk.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: 'js/[name].js',
+    chunkFilename: 'js/[name].chunk.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: './'
   },
   externals: {
     loadsh: {
@@ -42,12 +43,15 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 1024,
-          name: 'static/img/[name].[hash:7].[ext]'
+          name: 'img/[name].[hash:7].[ext]'
         }
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        loader: 'file-loader'
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[name].[hash:7].[ext]'
+        }
       }
     ]
   },

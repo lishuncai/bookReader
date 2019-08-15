@@ -10,8 +10,8 @@ export default {
   },
   created () {
     function fn () {
-      let str= import (/* webpackChunkName: "lodash" */ '@/utils/server').then(module => {
-        console.log(module)
+      const str = import(/* webpackChunkName: "lodash" */ '@/utils/server').then(module => {
+        console.log(module, str)
       })
     }
     fn()
