@@ -93,7 +93,7 @@ export default {
     hiddenSetting () {
       this.ifSettingShow = false;
     },
-    toHome() {
+    toHome () {
       this.$router.push('/home')
     }
   }

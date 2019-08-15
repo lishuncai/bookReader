@@ -18,13 +18,15 @@
 </template>
 
 <script>
-import titleBar from '@/components/titleBar.vue';
-import menuBar from '@/components/menuBar.vue';
+// import titleBar from '@/components/titleBar.vue';
+// import menuBar from '@/components/menuBar.vue';
 export default {
   name: 'Book',
   components: {
-    titleBar,
-    menuBar
+    titleBar: () => import(/* webpackChunkName: "Bar" */'@/components/titleBar.vue'),
+    menuBar: () => import(/* webpackChunkName: "Bar" */'@/components/menuBar.vue')
+    // titleBar,
+    // menuBar
   },
   data () {
     return {
