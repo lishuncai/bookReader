@@ -14,14 +14,19 @@ export default new Router({
     name: 'Book',
     component: Book
   },
+  // {
+  //   path: '/home',
+  //   name: 'home',
+  //   component: Home
+  // },
   {
-    path: '/home',
+    path: '/home/:Id',
     name: 'home',
-    component: Home
+    component: Home,
+    props: true
   },
   {
     path: '*',
     redirect: '/home'
-  }
-  ]
+  }]
 })

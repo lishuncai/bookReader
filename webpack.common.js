@@ -21,7 +21,7 @@ module.exports = {
     filename: 'js/[name].js',
     chunkFilename: 'js/[name].chunk.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: './'
+    publicPath: '/'
   },
   externals: {
     loadsh: {

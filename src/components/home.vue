@@ -1,5 +1,5 @@
 <template>
-  <div>Home</div>
+  <div>Home<img src="../assets/svg/icon-dot.svg" alt=""></div>
 </template>
 
 <script>
@@ -14,10 +14,13 @@ export default {
         console.log(module, str)
       })
     }
-    fn()
+    fn();
+    console.log(this.$route.params.Id)
   }
 }
 </script>
 
 <style lang="scss" scoped>
+  @import "@/assets/styles/global.scss";
+  
 </style>

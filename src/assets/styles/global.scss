@@ -3,6 +3,17 @@
 1rem = fontSize px
 1px = (1 / fontSize)rem 
 */
+html {
+  font-size: 10vw;
+  @media screen and (max-width: 320px){
+    font-size: 32px;
+  }
+
+  @media screen and (min-width: 540px){
+    font-size: 54px;
+  }
+}
+
 $fontSize: 37.5;
 @function srem($px) {
   @return ($px / $fontSize) + rem;
@@ -34,4 +45,24 @@ $fontSize: 37.5;
 }
 .slide-down-enter, .slide-down-leave-to {
   transform: translate3d(0, -100%, 0);
+}
+
+.fade-enter, .fade-leave-to {
+  transform: translate3d(-100%, 0, 0);
+}
+.fade-enter-to, .fade-leave {
+  transform: translate3d(0, 0, 0);
+}
+.fade-enter-active, .fade-leave-active {
+  transition: all .3s linear;
+}
+
+.show-enter, .show-leave-to {
+  opacity: 0;
+}
+.show-enter-to, .show-leave {
+  opacity: 1;
+}
+.show-enter-active, .show-leave-active {
+  transition: all .2s linear;
 }
