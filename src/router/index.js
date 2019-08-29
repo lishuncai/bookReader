@@ -1,11 +1,9 @@
 import Router from 'vue-router';
 import Book from '@/components/Book.vue';
+import Login from '@/components/login.vue';
+import notFound from '@/404.vue';
 // const Home = resolve => require(/* webpackChunkName: "home" */'@/components/home.vue', resolve);
-const Home = resolve => {
-  require.ensure([], () => {
-    resolve(require('@/components/home.vue'))
-  }, 'home')
-}
+
 export default new Router({
   mode: 'history',
   base: '/',
@@ -14,19 +12,18 @@ export default new Router({
     name: 'Book',
     component: Book
   },
-  // {
-  //   path: '/home',
-  //   name: 'home',
-  //   component: Home
-  // },
   {
-    path: '/home/:Id',
-    name: 'home',
-    component: Home,
-    props: true
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/notFound',
+    name: 'notFound',
+    component: notFound
   },
   {
     path: '*',
-    redirect: '/home'
+    redirect: '/notFound'
   }]
 })

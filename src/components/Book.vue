@@ -19,10 +19,7 @@
       @setThemes="setThemes"
       @showContains="showContains"
     />
-    <contains-page
-     :ifShowContains="ifShowContains"
-      @closeContains="closeContains"
-     ></contains-page>
+    <contains-page :ifShowContains="ifShowContains" @closeContains="closeContains"></contains-page>
   </div>
 </template>
 
@@ -30,7 +27,7 @@
 // import titleBar from '@/components/titleBar.vue';
 // import menuBar from '@/components/menuBar.vue';
 import containsPage from "@/components/contains.vue";
-import { setTimeout } from 'timers';
+import { setTimeout } from "timers";
 export default {
   name: "Book",
   components: {
@@ -81,14 +78,21 @@ export default {
       }
     };
   },
-
+  beforeCreate() {
+    console.log("welcome!");
+    if (!this.$store.state.logined) {
+      this.$router.replace("/login");
+    }
+  },
   created() {
     this.themes.fontSize = this.defaultFontSize;
   },
   beforeRouteLeave(to, from, next) {
-    if (to.name == 'home') {
+    if (to.name == "home") {
       this.ifShowContains = false;
-      setTimeout(next, 200)
+      setTimeout(next, 200);
+    } else {
+      next()
     }
   },
   methods: {

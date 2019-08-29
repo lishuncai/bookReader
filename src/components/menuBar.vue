@@ -81,9 +81,6 @@ export default {
     hiddenSetting() {
       this.ifSettingShow = false;
     },
-    toHome() {
-      this.$router.push("/home");
-    },
     setFontSize(fontSize) {
       this.$emit("setFontSize", fontSize);
     },

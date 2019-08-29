@@ -60,7 +60,8 @@ export default {
     z-index: 999;
     top: 0;
     left: 0;
-    width: srem(300);
+    width:  80%;
+    max-width: srem(320);
     height: 100%;
     background-color: #fff;
     overflow: hidden;

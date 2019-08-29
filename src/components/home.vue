@@ -1,12 +1,14 @@
 <template>
-  <div>Home<img src="../assets/svg/icon-dot.svg" alt=""></div>
+  <div>Home{{pageIndex}}</div>
 </template>
 
 <script>
 export default {
   name: '',
   data () {
-    return {}
+    return {
+      pageIndex: ''
+    }
   },
   created () {
     function fn () {
@@ -15,8 +17,8 @@ export default {
       })
     }
     fn();
-    console.log(this.$route.params.Id)
-  }
+    this.pageIndex = this.$route.params.Id
+  },
 }
 </script>
 

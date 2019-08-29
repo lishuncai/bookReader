@@ -1,33 +1,19 @@
 <template>
   <transition name="slide-down">
-    <div
-      v-show="ifTitleAndMenuShow"
-      class="title-wrapper"
-    >
+    <div v-show="ifTitleAndMenuShow" class="title-wrapper">
       <div class="left">
-        <i class="el-icon-arrow-left icon" />
+        <i @click="toHome">
+          <img class="icon icon-header" src="../assets/svg/icon-head.svg" alt />
+        </i>
       </div>
       <div class="right">
         <div class="icon-wrapper">
           <i>
-            <img
-              class="icon"
-              src="../assets/svg/shop_car.svg"
-            >
+            <img class="icon" src="../assets/svg/shop_car.svg" />
           </i>
+
           <i>
-            <img
-              class="icon icon-header"
-              src="../assets/svg/icon-head.svg"
-              alt
-            >
-          </i>
-          <i>
-            <img
-              class="icon"
-              src="../assets/svg/menu_learn.svg"
-              alt
-            >
+            <img class="icon" src="../assets/svg/menu_learn.svg" alt />
           </i>
         </div>
       </div>
@@ -41,6 +27,15 @@ export default {
     ifTitleAndMenuShow: {
       type: Boolean,
       default: false
+    }
+  },
+  name: "",
+  data() {
+    return {};
+  },
+  methods: {
+    toHome() {
+      this.$router.push("/login");
     }
   }
 };
