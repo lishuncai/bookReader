@@ -22,6 +22,7 @@ export default {
         account: this.account
       })
         .then(data => {
+          sessionStorage.setItem('logined', true)
           alert(data)
           this.$router.replace("/");
           this.addRoutes();

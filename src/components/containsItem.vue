@@ -1,5 +1,5 @@
 <template>
-  <router-link class="items" :to="{name: 'home', params:{Id: pageIndex}}" tag='p'>
+  <router-link class="items" :to="{name: 'home', params:{Id: pageIndex, title: title}}" tag='p'>
     <div class="context">
       <div class="title">{{title}}</div>
       <div

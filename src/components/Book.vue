@@ -28,6 +28,7 @@
 // import menuBar from '@/components/menuBar.vue';
 import containsPage from "@/components/contains.vue";
 import { setTimeout } from "timers";
+import store from '@/store/index.js';
 export default {
   name: "Book",
   components: {
@@ -79,9 +80,8 @@ export default {
     };
   },
   beforeCreate() {
-    console.log("welcome!");
     if (!this.$store.state.logined) {
-      this.$router.replace("/login");
+      this.$router.push("/login");
     }
   },
   created() {
@@ -92,7 +92,7 @@ export default {
       this.ifShowContains = false;
       setTimeout(next, 200);
     } else {
-      next()
+      next();
     }
   },
   methods: {
