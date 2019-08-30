@@ -22,6 +22,14 @@ const route = new Router({
               return createElement('p', 'Welcome!')
             }
           }
+        },
+        {
+          path: 'home',
+          component: {
+            render: (createElement) => {
+              return createElement('p', 'home!')
+            }
+          }
         }
       ],
       beforeEnter: checkLogin

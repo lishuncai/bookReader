@@ -7,7 +7,7 @@
         </i>
       </div>
       <div class="right">
-        <div class="icon-wrapper">
+        <!-- <div class="icon-wrapper">
           <i>
             <img class="icon" src="../assets/svg/shop_car.svg" />
           </i>
@@ -15,7 +15,7 @@
           <i>
             <img class="icon" src="../assets/svg/menu_learn.svg" alt />
           </i>
-        </div>
+        </div> -->
       </div>
     </div>
   </transition>
