@@ -4,6 +4,7 @@
       <input type="text" v-model="account" />
       <input type="submit" />
     </form>
+    <p>输入admin</p>
   </div>
 </template>
 
@@ -24,15 +25,15 @@ export default {
         .then(data => {
           sessionStorage.setItem('logined', true)
           alert(data)
-          this.$router.replace("/");
           this.addRoutes();
+          this.$router.replace("/");
         })
         .catch(error => {
           alert(error.message)
         })
     },
     addRoutes() {
-      this.$router.addRoutes([addRoutes.home])
+      this.$router.addRoutes([addRoutes.book])
     }
   }
 }

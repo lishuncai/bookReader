@@ -1,5 +1,5 @@
 <template>
-  <router-link class="items" :to="{name: 'home', params:{Id: pageIndex, title: title}}" tag='p'>
+  <div class="items" @click="linkArticle">
     <div class="context">
       <div class="title">{{title}}</div>
       <div
@@ -7,7 +7,7 @@
       >........................................................................................................................................................................................</div>
     </div>
     <div class="page-index">第 {{pageIndex}} 页</div>
-  </router-link>
+  </div>
 </template>
 
 <script>
@@ -19,6 +19,15 @@ export default {
   },
   data() {
     return {};
+  },
+  methods: {
+    closeContains() {
+      this.$emit('closeContains')
+    },
+    linkArticle() {
+      this.closeContains()
+      this.$router.push({path: `/book/home/${this.title}`})
+    }
   }
 };
 </script>

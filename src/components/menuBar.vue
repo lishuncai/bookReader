@@ -85,6 +85,7 @@ export default {
       this.$emit("setFontSize", fontSize);
     },
     setThemes(index) {
+      console.log('fdfdf')
       this.$emit('setThemes', index);
     },
     showContains() {

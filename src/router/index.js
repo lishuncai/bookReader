@@ -4,20 +4,27 @@ import Login from '@/components/login.vue';
 import notFound from '@/404.vue';
 import store from '@/store/index.js';
 import otherRoutes from './addRoutes';
-import home from '@/components/home.vue';
 // const Home = resolve => require(/* webpackChunkName: "home" */'@/components/home.vue', resolve);
 
 const route = new Router({
   mode: 'history',
   base: '/',
-  routes: [{
+  routes: [
+    {
       path: '/',
       name: 'Book',
       component: Book,
       children: [
-
+        {
+          path: '',
+          component: {
+            render: (createElement) => {
+              return createElement('p', 'Welcome!')
+            }
+          }
+        }
       ],
-      beforeEnter: checkLogin,
+      beforeEnter: checkLogin
     },
     {
       path: '/login',
@@ -69,7 +76,7 @@ function checkLogin(to, from, next) {
     if (loginState) {
       // 恢复登陆状态， 重新添加动态路由
       store.commit('login', loginState)
-      route.addRoutes([otherRoutes.home])
+      route.addRoutes([otherRoutes.book])
       // 路由不匹配时报404，前提是静态路由不能配置重定向
       route.addRoutes([{
         path: '*',
