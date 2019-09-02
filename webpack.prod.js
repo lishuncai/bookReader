@@ -2,7 +2,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
@@ -36,31 +36,31 @@ module.exports = merge(common, {
       filename: 'css/style.css',
       chunkFilename: 'css/[name].css',
       path: path.resolve(__dirname, 'dist'),
-      publicPath: './'
+      publicPath: '/'
     })
   ],
   optimization: {
-    // splitChunks: {
-    //   cacheGroups: {
-    //     vendors: {
-    //       test: /[\\/]node_modules[\\/]/,
-    //       name: 'vendors',
-    //       minSize: 30000,
-    //       minChunks: 1,
-    //       chunks: 'initial',
-    //       priority: -10 // 该配置项是设置处理的优先级，数值越大越优先处理
-    //     },
-    //     commons: {
-    //       test: /[\\/]src[\\/]common[\\/]/,
-    //       name: 'commons',
-    //       minSize: 30000,
-    //       minChunks: 3,
-    //       chunks: 'initial',
-    //       priority: -1,
-    //       reuseExistingChunk: true // 这个配置允许我们使用已经存在的代码块
-    //     }
-    //   }
-    // },
+    // 链接：https://juejin.im/post/5b07d02a6fb9a07aa213c9bc
+    splitChunks: {
+      chunks: 'async',
+      minSize: 30000,
+      minChunks: 1,
+      maxAsyncRequests: 5,
+      maxInitialRequests: 3,
+      automaticNameDelimiter: '~',
+      name: true,
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true
+        }
+      }
+    },
     minimizer: [
       new UglifyJsPlugin({
         exclude: /\.min\.js$/, // 过滤掉以".min.js"结尾的文件，我们认为这个后缀本身就是已经压缩好的代码，没必要进行二次压缩
