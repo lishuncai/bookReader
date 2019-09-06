@@ -79,7 +79,6 @@ module.exports = merge(common, {
         }
       }),
       new OptimizeCssAssetsPlugin({
-        cssProcessor: require('cssnano'),
         cssProcessorPluginOptions: {
           preset: ['default', {
             discardComments: {

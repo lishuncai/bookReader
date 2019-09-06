@@ -3,7 +3,7 @@
     <form @submit.prevent="submit">
       <input type="text" v-model="account" />
       <input class="btn" type="submit" value="登 陆"/>
-      <p>输入admin</p>
+      <p>* 输入admin</p>
     </form>
   </div>
 </template>
@@ -44,6 +44,12 @@ export default {
   form {
     height: 100%;
     font-size: srem(18);
+    .tovw {
+      font-size: tovw(18);
+    }
+    .px {
+      font-size: 16px;
+    }
     @include center;
     flex-flow: column;
     input {
