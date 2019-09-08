@@ -2,8 +2,8 @@
   <div>
     <form @submit.prevent="submit">
       <input type="text" v-model="account" />
-      <input class="btn" type="submit" value="登 陆"/>
-      <p>输入admin</p>
+      <input class="px-btn" type="submit" value="登 陆"/>
+      <p>* 输入admin</p>
     </form>
   </div>
 </template>
@@ -40,7 +40,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '@/assets/styles/global.scss';
   form {
     height: 100%;
     font-size: srem(18);
@@ -48,14 +47,14 @@ export default {
     flex-flow: column;
     input {
       margin: srem(10) 0;
-      border-radius: 5px;
-      border: 1px solid #aaa;
+      border-radius: px(5);
+      border: 1px solid rgb(185, 172, 172);
       text-align: center;
     }
-    .btn {
+    .px-btn {
       background: none;
       border-radius: 5px;
-      padding: 5px;
+      padding: px(5);
       border: 1px solid #aaa;
       background-color: #cfcfcf;
       color: #fff;

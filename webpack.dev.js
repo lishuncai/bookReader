@@ -1,3 +1,4 @@
+const path = require('path');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 module.exports = merge(common, {
@@ -20,6 +21,12 @@ module.exports = merge(common, {
           'vue-style-loader',
           'css-loader',
           'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: path.resolve(__dirname, './src/assets/styles/global.scss')
+            }
+          },
           'postcss-loader'
         ]
       }

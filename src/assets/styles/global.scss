@@ -3,20 +3,14 @@
 1rem = fontSize px
 1px = (1 / fontSize)rem 
 */
-html {
-  font-size: 10vw;
-  @media screen and (max-width: 320px){
-    font-size: 32px;
-  }
 
-  @media screen and (min-width: 540px){
-    font-size: 54px;
-  }
+
+@function srem($px) {
+  @return $px + px;
 }
 
-$fontSize: 37.5;
-@function srem($px) {
-  @return ($px / $fontSize) + rem;
+@function px($px) {
+  @return $px + px;
 }
 
 @mixin center() {
