@@ -26,6 +26,12 @@ module.exports = merge(common, {
           MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: path.resolve(__dirname, './src/assets/styles/global.scss')
+            }
+          },
           'postcss-loader'
         ]
       }

@@ -9,6 +9,10 @@
   @return $px + px;
 }
 
+@function px($px) {
+  @return $px + px;
+}
+
 @mixin center() {
   display: flex;
   justify-content: center;
