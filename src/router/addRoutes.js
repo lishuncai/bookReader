@@ -7,7 +7,7 @@ const Home = resolve => {
 export default {
   book: {
     path: '/book',
-    name: 'Book',
+    name: 'book',
     component: Book,
     children: [
       {
