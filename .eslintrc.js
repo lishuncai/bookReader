@@ -1,7 +1,7 @@
 module.exports = {
     root: true,
-    parser: 'babel-eslint',
     parserOptions: {
+      parser: 'babel-eslint',
       sourceType: 'module'
     },
     env: {
@@ -9,9 +9,9 @@ module.exports = {
       commonjs: true,
       es6: true
     },
-    extends: 'standard',
+    extends: ['plugin:vue/recommended','standard'],
     plugins: [
-      'html'
+      'vue'
     ],
     'rules': {
       // allow paren-less arrow functions

@@ -4,19 +4,21 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server --config webpack.dev.js --watch",
-    "lint": "eslint  --ext .js --ext .jsx --ext .vue src/",
-    "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue src/"
+    "lint": "eslint --fix --ext .js --ext .jsx --ext .vue src/"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.5.4",
+    "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.0.0",
+    "cssnano": "^4.1.10",
     "eslint": "^6.0.1",
     "eslint-config-standard": "^13.0.1",
     "eslint-loader": "^2.2.1",
@@ -26,10 +28,21 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.2.3",
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.4.1",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.12.0",
     "npm": "^6.10.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
+    "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^2.1.0",
+    "vue": "^2.6.10",
+    "vue-eslint-parser": "^6.0.4",
     "vue-loader": "^15.7.0",
     "vue-router": "^3.0.7",
     "vue-template-compiler": "^2.6.10",
@@ -39,6 +52,20 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.4"
-  }
+    "@babel/polyfill": "^7.4.4",
+    "vuex": "^3.1.1"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "defaults",
+    "not ie < 11",
+    "last 2 versions",
+    "> 1%",
+    "iOS 7",
+    "last 3 iOS versions"
+  ]
 }
