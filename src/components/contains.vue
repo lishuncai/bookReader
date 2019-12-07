@@ -11,6 +11,7 @@
           :key="index"
           :title="item"
           :pageIndex="index"
+          @closeContains="closeContains"
         ></contains-item>
       </div>
     </transition>

@@ -6,9 +6,6 @@
           <i @click="showContains">
             <img class="icon" src="../assets/svg/menu_learn.svg" />
           </i>
-          <i>
-            <img class="icon" src="../assets/svg/sliders.svg" />
-          </i>
           <i @click="showSettingWrapper(1)">
             <img class="icon" src="../assets/svg/icon-light.svg" alt />
           </i>
@@ -85,6 +82,7 @@ export default {
       this.$emit("setFontSize", fontSize);
     },
     setThemes(index) {
+      console.log('fdfdf')
       this.$emit('setThemes', index);
     },
     showContains() {

@@ -2,7 +2,8 @@
   <div>
     <form @submit.prevent="submit">
       <input type="text" v-model="account" />
-      <input type="submit" />
+      <input class="px-btn" type="submit" value="登 陆"/>
+      <p>* 输入admin</p>
     </form>
   </div>
 </template>
@@ -22,24 +23,48 @@ export default {
         account: this.account
       })
         .then(data => {
+          sessionStorage.setItem('logined', true)
           alert(data)
-          this.$router.replace("/");
           this.addRoutes();
+          this.$router.replace("/");
         })
         .catch(error => {
           alert(error.message)
         })
     },
     addRoutes() {
-      this.$router.addRoutes([addRoutes.home])
+      this.$router.addRoutes([addRoutes.book])
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  @import '@/assets/styles/global.scss';
   form {
-    font-size: srem(24);
+    height: 100%;
+    font-size: srem(18);
+    @include center;
+    flex-flow: column;
+    input {
+      margin: srem(10) 0;
+      border-radius: px(5);
+      border: 1px solid rgb(185, 172, 172);
+      text-align: center;
+    }
+    .px-btn {
+      background: none;
+      border-radius: 5px;
+      padding: px(5);
+      border: 1px solid #aaa;
+      background-color: #cfcfcf;
+      color: #fff;
+      cursor: pointer;
+      &:hover {
+        background-color: #aabbcc;
+      }
+      &:active {
+        background-color: #90aecd;
+      }
+    }
   }
 </style>

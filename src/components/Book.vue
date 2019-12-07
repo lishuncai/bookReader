@@ -1,12 +1,11 @@
 <template>
   <div id="container">
     <title-bar :if-title-and-menu-show="ifTitleAndMenuShow" />
-    <div class="main" :style="themes">
-      <div id="reader">
-        <p class="title" :style="{fontSize: themes.fontSize*1.5 + 'px'}">a vue demo</p>
-        <p class="content" :style="{fontSize:themes.fontSize + 'px'}">hello world</p>
+    <div class="main">
+      <div id="reader" @click="toggleTitle" :style="themes">
+        <router-view :style="themes"></router-view>
       </div>
-      <div class="mask" @click="toggleTitle" />
+      <!-- <div class="mask" /> -->
     </div>
     <menu-bar
       ref="menuBar"
@@ -28,6 +27,7 @@
 // import menuBar from '@/components/menuBar.vue';
 import containsPage from "@/components/contains.vue";
 import { setTimeout } from "timers";
+import store from '@/store/index.js';
 export default {
   name: "Book",
   components: {
@@ -79,21 +79,12 @@ export default {
     };
   },
   beforeCreate() {
-    console.log("welcome!");
     if (!this.$store.state.logined) {
-      this.$router.replace("/login");
+      this.$router.push("/login");
     }
   },
   created() {
     this.themes.fontSize = this.defaultFontSize;
-  },
-  beforeRouteLeave(to, from, next) {
-    if (to.name == "home") {
-      this.ifShowContains = false;
-      setTimeout(next, 200);
-    } else {
-      next()
-    }
   },
   methods: {
     toggleTitle() {
@@ -150,6 +141,9 @@ export default {
     left: 0;
   }
   #reader {
+    width: 100%;
+    height: 100%;
+    @include center;
     p {
       text-align: center;
       flex: 1;
