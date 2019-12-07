@@ -1,13 +1,9 @@
 import Book from '@/components/Book.vue';
-const Home = resolve => {
-  require.ensure([], () => {
-    resolve(require('@/components/home.vue'))
-  }, 'home')
-}
+const Home = () => import('@/components/home.vue')
 export default {
   book: {
     path: '/book',
-    name: 'Book',
+    name: 'book',
     component: Book,
     children: [
       {
