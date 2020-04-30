@@ -34,7 +34,7 @@
     "happypack": "^5.0.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lsc_calendar": "^1.0.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
